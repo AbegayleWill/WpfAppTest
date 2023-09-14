@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WpfAppTest
 {
@@ -11,9 +12,12 @@ namespace WpfAppTest
     {
         private int score = 0; // Track the score
 
+        private Random random = new Random();
+        private DispatcherTimer enemyMoveTimer = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void Canvas_KeyDown(object sender, KeyEventArgs e)
