@@ -46,6 +46,18 @@ namespace WpfAppTest
             }
 
             CheckForCollisions(); // Check for collisions after moving Pac-Man
+            e.Handled = true;
+
+        }
+        private void CharacterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem selectedItem = (ComboBoxItem)CharacterComboBox.SelectedItem;
+            string characterUrl = (string)selectedItem.Tag;
+
+            if (!string.IsNullOrEmpty(characterUrl))
+            {
+                pacman.Source = new BitmapImage(new Uri(characterUrl));
+            }
         }
 
         private void CheckForCollisions()

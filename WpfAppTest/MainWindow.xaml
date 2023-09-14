@@ -7,18 +7,41 @@
        xmlns:local="clr-namespace:WpfAppTest"
        mc:Ignorable="d"
        Title="Pacman Game" Height="700" Width="740">
-
+    <Window.Resources>
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Button Content="Start Game" Name="StartButton" Width="160" Height="40" Canvas.Left="290" Canvas.Top="5" FontSize="24" 
+        <!-- Style for the ComboBox -->
+
+
+        <!-- ComboBox for Character Selection -->
+        <ComboBox Name="CharacterComboBox" SelectionChanged="CharacterComboBox_SelectionChanged" Tag="null" Margin="268,357,268,291">
+            <ComboBoxItem Content="Choose Your Player" IsEnabled="False" IsSelected="True"/>
+            <ComboBoxItem Content="Leo" Tag="https://i.ibb.co/K0xgHD9/Leo.png"/>
+            <ComboBoxItem Content="Nicky" Tag="https://i.ibb.co/8MjWn9L/Nicky.png"/>
+            <!-- Add other character names here -->
+        </ComboBox>
+        <Button Content="Start Game" Name="StartButton" Width="203" Height="40" Canvas.Left="290" Canvas.Top="5" FontSize="24" 
 Background="#4CAF50" 
 Foreground="White" 
 BorderBrush="#388E3C" 
 BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   VerticalAlignment="Top" Margin="0,312,0,0"/>
-        <Canvas Background="#101D42" Name="MyCanvas" Focusable="True"  >
-            <!--<Canvas Background="#101D42" Name="MyCanvas" Focusable="True" Visibility="Collapsed" >-->
+
+        <Canvas Background="#101D42" Name="MyCanvas" Focusable="True" Visibility="Collapsed" >
             <!-- Start Game Button -->
 
-            <Image Name="pacman" Height="45" Width="45" Source="https://i.ibb.co/8KGLsch/character3.png" Canvas.Left="60" Canvas.Top="570"/>
+            <!--<Image Name="pacman" Height="45" Width="45" Source="https://i.ibb.co/8KGLsch/character3.png" Canvas.Left="60" Canvas.Top="570"/>-->
+            <!--<Image Name="pacman" Height="45" Width="45" Source="https://i.ibb.co/8MjWn9L/Nicky.png" Canvas.Left="60" Canvas.Top="570"/>-->
+            <Image Name="pacman" Height="55" Width="55" Source="https://i.ibb.co/K0xgHD9/Leo.png" Canvas.Left="60" Canvas.Top="570"/>
+
             <Label Name="scoreText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White"/>
             <Label Name="damageText" Content="Lives: 0" FontSize="18" FontWeight="Bold" Canvas.Right="0" Foreground="White"/>
 
@@ -59,13 +82,6 @@ BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   Verti
 
             <!-- Enemy 3 -->
             <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="370" Canvas.Top="410" HorizontalAlignment="Center"   VerticalAlignment="Top"/>
-
-            <!-- Regular Pellets -->
-            <!-- Row 1 -->
-            <!-- ... continue placing pellets in this row -->
-
-            <!-- Row 2 -->
-            <!-- ... continue placing pellets in this row -->
 
             <!-- Super Pellets at key positions -->
             <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="509" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" Tag="Pellet"  VerticalAlignment="Top"/>
@@ -121,4 +137,5 @@ BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   Verti
             <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="598" Canvas.Top="600" RenderTransformOrigin="0.525,1.977" Tag="Pellet"  HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </Canvas>
     </Grid>
+
 </Window>
