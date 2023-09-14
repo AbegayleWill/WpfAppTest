@@ -14,9 +14,8 @@ Background="#4CAF50"
 Foreground="White" 
 BorderBrush="#388E3C" 
 BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,312,0,0"/>
-        <Canvas Background="#101D42" Name="MyCanvas" Focusable="True" Visibility="Collapsed">
+        <Canvas Background="#101D42" Name="MyCanvas" Focusable="True" >
             <!-- Start Game Button -->
-
 
             <Image Name="pacman" Height="60" Width="60" Source="https://i.ibb.co/8KGLsch/character3.png" Canvas.Left="60" Canvas.Top="570"/>
             <Label Name="scoreText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White"/>
@@ -60,7 +59,51 @@ BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center" Vertica
             <!-- Enemy 3 -->
             <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="370" Canvas.Top="410" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
+            <!-- Regular Pellets -->
+            <!-- Row 1 -->
+            <!-- ... continue placing pellets in this row -->
 
+            <!-- Row 2 -->
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="27" Width="22" Canvas.Left="90" Canvas.Top="94" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-1.889"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <!-- ... continue placing pellets in this row -->
+
+            <!-- Super Pellets at key positions -->
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="131" Canvas.Top="95"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="90" Canvas.Top="140" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="131" Canvas.Top="140" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="593" Canvas.Top="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="593" Canvas.Top="215" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="593" Canvas.Top="245" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.525,1.977"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="593" Canvas.Top="280" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="593" Canvas.Top="320" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="509" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="550" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="550" Canvas.Top="440" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="509" Canvas.Top="440" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="308" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="350" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="509" Canvas.Top="440" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="395" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="445" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="245" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="214" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="180" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="214" Canvas.Top="440" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="235" Canvas.Top="600" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="204" Canvas.Top="600" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="170" Canvas.Top="600" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="625" Canvas.Top="600" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="594" Canvas.Top="600" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="560" Canvas.Top="600" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </Canvas>
     </Grid>
 </Window>
