@@ -18,41 +18,41 @@ BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   Verti
             <!--<Canvas Background="#101D42" Name="MyCanvas" Focusable="True" Visibility="Collapsed" >-->
             <!-- Start Game Button -->
 
-            <Image Name="pacman" Height="60" Width="60" Source="https://i.ibb.co/8KGLsch/character3.png" Canvas.Left="60" Canvas.Top="570"/>
+            <Image Name="pacman" Height="45" Width="45" Source="https://i.ibb.co/8KGLsch/character3.png" Canvas.Left="60" Canvas.Top="570"/>
             <Label Name="scoreText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White"/>
             <Label Name="damageText" Content="Lives: 0" FontSize="18" FontWeight="Bold" Canvas.Right="0" Foreground="White"/>
 
             <!-- Outer walls -->
-            <Rectangle Fill="#B0BEC5" Canvas.Left="50" Canvas.Top="50" Width="640" Height="20"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="50" Canvas.Top="50" Width="20" Height="600"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="670" Canvas.Top="50" Width="20" Height="600"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="50" Canvas.Top="630" Width="640" Height="20"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="50" Canvas.Top="50" Width="640" Height="20" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="50" Canvas.Top="50" Width="20" Height="600" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="670" Canvas.Top="50" Width="20" Height="600" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="50" Canvas.Top="630" Width="640" Height="20" Tag="MazeBlock"/>
 
             <!-- T-shaped parts -->
-            <Rectangle Fill="#B0BEC5" Canvas.Left="170" Canvas.Top="150" Width="20" Height="150"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="170" Canvas.Top="150" Width="400" Height="20"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="550" Canvas.Top="150" Width="20" Height="150"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="170" Canvas.Top="150" Width="20" Height="150" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="170" Canvas.Top="150" Width="400" Height="20" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="550" Canvas.Top="150" Width="20" Height="150" Tag="MazeBlock"/>
 
             <!-- Rectangular parts -->
-            <Rectangle Fill="#B0BEC5" Canvas.Left="170" Canvas.Top="400" Width="400" Height="20"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="170" Canvas.Top="500" Width="400" Height="20"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="170" Canvas.Top="400" Width="400" Height="20" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="170" Canvas.Top="500" Width="400" Height="20" Tag="MazeBlock"/>
 
             <!-- Warped tunnels -->
-            <Rectangle Fill="#B0BEC5" Canvas.Left="50" Canvas.Top="300" Width="20" Height="100"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="670" Canvas.Top="300" Width="20" Height="100"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="50" Canvas.Top="300" Width="20" Height="100" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="670" Canvas.Top="300" Width="20" Height="100" Tag="MazeBlock"/>
 
             <!-- Ghost house in the middle -->
-            <Rectangle Fill="#3c6e71" Canvas.Left="280" Canvas.Top="245" Width="200" Height="150"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="330" Canvas.Top="245" Width="100" Height="20" HorizontalAlignment="Center"   VerticalAlignment="Top"/>
+            <Rectangle Fill="#3c6e71" Canvas.Left="280" Canvas.Top="245" Width="200" Height="150" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="330" Canvas.Top="245" Width="100" Height="20" HorizontalAlignment="Center"   VerticalAlignment="Top" Tag="MazeBlock"/>
 
             <!-- Additional maze paths -->
-            <Rectangle Fill="#B0BEC5" Canvas.Left="270" Canvas.Top="125" Width="20" Height="75" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="470" Canvas.Top="125" Width="20" Height="75" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="270" Canvas.Top="480" Width="20" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <Rectangle Fill="#B0BEC5" Canvas.Left="470" Canvas.Top="480" Width="20" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="270" Canvas.Top="125" Width="20" Height="65" HorizontalAlignment="Center" VerticalAlignment="Top" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="470" Canvas.Top="125" Width="20" Height="65" HorizontalAlignment="Center" VerticalAlignment="Top" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="270" Canvas.Top="480" Width="20" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top" Tag="MazeBlock"/>
+            <Rectangle Fill="#B0BEC5" Canvas.Left="470" Canvas.Top="480" Width="20" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top" Tag="MazeBlock"/>
 
             <!-- Enemy 1 -->
-            <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="165" Canvas.Top="305"/>
+            <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="430" Canvas.Top="190"/>
 
             <!-- Enemy 2 -->
             <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="593" Canvas.Top="100" HorizontalAlignment="Left"   VerticalAlignment="Center"/>

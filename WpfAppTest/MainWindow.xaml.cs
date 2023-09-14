@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace WpfAppTest
 {
@@ -22,6 +23,11 @@ namespace WpfAppTest
             // Get current position
             double currentLeft = Canvas.GetLeft(pacman);
             double currentTop = Canvas.GetTop(pacman);
+
+           
+            double newLeft = currentLeft;
+            double newTop = currentTop;
+
 
             switch (e.Key)
             {
@@ -60,6 +66,16 @@ namespace WpfAppTest
                         child.Visibility = Visibility.Collapsed; // Hide the pellet
                         score++; // Increase the score
                         scoreText.Content = "Score: " + score; // Update the score label
+                    }
+                }
+                // Check for collisions with maze blocks
+                if (child is Rectangle && (child as Rectangle).Tag?.ToString() == "MazeBlock")
+                {
+                    Rect mazeBlockRect = new Rect(Canvas.GetLeft(child), Canvas.GetTop(child), (child as Rectangle).Width, (child as Rectangle).Height);
+                    if (pacmanRect.IntersectsWith(mazeBlockRect))
+                    {
+                        // Show a simple popup when Pac-Man collides with a maze block
+                        MessageBox.Show("Pac-Man collided with the maze!");
                     }
                 }
             }
