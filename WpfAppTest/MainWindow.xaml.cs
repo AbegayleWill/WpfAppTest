@@ -57,10 +57,17 @@ namespace WpfAppTest
 
 
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void StartGame_Click(object sender, RoutedEventArgs e)
         {
+            // Show the game canvas and hide the start button
+            MyCanvas.Visibility = Visibility.Visible;
+            StartButton.Visibility = Visibility.Collapsed;////
+
+            // Focus on the canvas to allow key events
             MyCanvas.Focus();
         }
+
+
     }
 }
 
