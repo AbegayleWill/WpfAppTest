@@ -7,32 +7,60 @@
        xmlns:local="clr-namespace:WpfAppTest"
        mc:Ignorable="d"
        Title="Pacman Game" Height="700" Width="740">
-        
-    <Canvas Background="#101D42" Name="MyCanvas"  Focusable="True">
-        <Image Name="pacman" Height="50" Width="50" Source="C:\Users\AbegayleWilliams\OneDrive - Default Directory\Desktop\WpfAppTest\WpfAppTest\Resource\Character.png" Canvas.Left="60" Canvas.Top="580"/>
-        <Label Name="scoreText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White"/>
-        <Label Name="damageText" Content="Lives: 0" FontSize="18" FontWeight="Bold" Canvas.Right="0" Foreground="White"/>
 
-        <!-- Outer walls -->
-        <Rectangle Fill="Black" Canvas.Left="50" Canvas.Top="50" Width="620" Height="20"/>
-        <Rectangle Fill="Black" Canvas.Left="50" Canvas.Top="50" Width="20" Height="600"/>
-        <Rectangle Fill="Black" Canvas.Left="650" Canvas.Top="50" Width="20" Height="600"/>
-        <Rectangle Fill="Black" Canvas.Left="50" Canvas.Top="630" Width="620" Height="20"/>
+    <Grid>
+        <Button Content="Start Game" Name="StartButton" Width="160" Height="40" Canvas.Left="290" Canvas.Top="5" FontSize="24" 
+Background="#4CAF50" 
+Foreground="White" 
+BorderBrush="#388E3C" 
+BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,312,0,0"/>
+        <Canvas Background="#101D42" Name="MyCanvas" Focusable="True" Visibility="Collapsed">
+            <!-- Start Game Button -->
 
-        <!-- Inner walls -->
-        <Rectangle Fill="Green" Canvas.Left="100" Canvas.Top="100" Width="80" Height="20" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Gold" Canvas.Left="540" Canvas.Top="100" Width="80" Height="20" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Green" Canvas.Left="100" Canvas.Top="100" Width="20" Height="150" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Gold" Canvas.Left="600" Canvas.Top="100" Width="20" Height="150" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Green" Canvas.Left="100" Canvas.Top="250" Width="500" Height="20" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Gold" Canvas.Left="100" Canvas.Top="450" Width="80" Height="20" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Green" Canvas.Left="540" Canvas.Top="450" Width="80" Height="20" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Gold" Canvas.Left="200" Canvas.Top="150" Width="20" Height="100" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Green" Canvas.Left="480" Canvas.Top="150" Width="20" Height="100" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Gold" Canvas.Left="200" Canvas.Top="300" Width="20" Height="200" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Green" Canvas.Left="480" Canvas.Top="300" Width="20" Height="200" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Gold" Canvas.Left="300" Canvas.Top="150" Width="20" Height="400" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Green" Canvas.Left="380" Canvas.Top="150" Width="20" Height="400" RadiusX="10" RadiusY="10"/>
-        <Rectangle Fill="Gold" Canvas.Left="100" Canvas.Top="550" Width="500" Height="20" RadiusX="10" RadiusY="10"/>
-    </Canvas>
+
+            <Image Name="pacman" Height="60" Width="60" Source="https://i.ibb.co/8KGLsch/character3.png" Canvas.Left="60" Canvas.Top="570"/>
+            <Label Name="scoreText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White"/>
+            <Label Name="damageText" Content="Lives: 0" FontSize="18" FontWeight="Bold" Canvas.Right="0" Foreground="White"/>
+
+            <!-- Outer walls -->
+            <Rectangle Fill="Green" Canvas.Left="50" Canvas.Top="50" Width="640" Height="20"/>
+            <Rectangle Fill="Green" Canvas.Left="50" Canvas.Top="50" Width="20" Height="600"/>
+            <Rectangle Fill="Green" Canvas.Left="670" Canvas.Top="50" Width="20" Height="600"/>
+            <Rectangle Fill="Green" Canvas.Left="50" Canvas.Top="630" Width="640" Height="20"/>
+
+            <!-- T-shaped parts -->
+            <Rectangle Fill="Gold" Canvas.Left="170" Canvas.Top="150" Width="20" Height="150"/>
+            <Rectangle Fill="Gold" Canvas.Left="170" Canvas.Top="150" Width="400" Height="20"/>
+            <Rectangle Fill="Gold" Canvas.Left="550" Canvas.Top="150" Width="20" Height="150"/>
+
+            <!-- Rectangular parts -->
+            <Rectangle Fill="Black" Canvas.Left="170" Canvas.Top="400" Width="400" Height="20"/>
+            <Rectangle Fill="Black" Canvas.Left="170" Canvas.Top="500" Width="400" Height="20"/>
+
+            <!-- Warped tunnels -->
+            <Rectangle Fill="Green" Canvas.Left="50" Canvas.Top="300" Width="20" Height="100"/>
+            <Rectangle Fill="Green" Canvas.Left="670" Canvas.Top="300" Width="20" Height="100"/>
+
+            <!-- Ghost house in the middle -->
+            <Rectangle Fill="#3c6e71" Canvas.Left="280" Canvas.Top="245" Width="200" Height="150"/>
+            <Rectangle Fill="Green" Canvas.Left="330" Canvas.Top="245" Width="100" Height="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+            <!-- Additional maze paths -->
+            <Rectangle Fill="Gold" Canvas.Left="270" Canvas.Top="100" Width="20" Height="100"/>
+            <Rectangle Fill="Gold" Canvas.Left="470" Canvas.Top="100" Width="20" Height="100"/>
+            <Rectangle Fill="Black" Canvas.Left="270" Canvas.Top="450" Width="20" Height="100"/>
+            <Rectangle Fill="Black" Canvas.Left="470" Canvas.Top="450" Width="20" Height="100"/>
+
+            <!-- Enemy 1 -->
+            <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="189" Canvas.Top="95"/>
+
+            <!-- Enemy 2 -->
+            <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="593" Canvas.Top="100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <!-- Enemy 3 -->
+            <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="370" Canvas.Top="410" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+
+        </Canvas>
+    </Grid>
 </Window>
