@@ -57,23 +57,16 @@ namespace WpfAppTest
 
 
 
-        //private void StartGame_Click(object sender, RoutedEventArgs e)
-        //{
-        //    // Show the game canvas and hide the start button
-        //    MyCanvas.Visibility = Visibility.Visible;
-        //    StartButton.Visibility = Visibility.Collapsed;
-
-        //    // Set the canvas opacity to 1 (fully opaque)
-        //    MyCanvas.Opacity = 1;
-
-        //    // Focus on the canvas to allow key events
-        //    MyCanvas.Focus();
-        //}
-
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
-            ContextControls.StartGame_(sender, e);
+            // Show the game canvas and hide the start button
+            MyCanvas.Visibility = Visibility.Visible;
+            StartButton.Visibility = Visibility.Collapsed;////
+
+            // Focus on the canvas to allow key events
+            MyCanvas.Focus();
         }
+
 
     }
 }
