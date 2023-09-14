@@ -7,13 +7,15 @@ using System.Xml;
 
 namespace WpfAppTest
 {
-    public class Pacman : Character
+    public class Pacman : ICharacter
     {
         public int Lives { get; set; }
         public bool IsSuperPacman { get; set; }
+        int ICharacter.X { get;  set; }
+        int ICharacter.Y{ get; set;}
+        int ICharacter.Speed { get; set; }
 
-
-        public override void Move()
+        public void Move()
         {
             // Pacman move logic
         }
@@ -31,6 +33,11 @@ namespace WpfAppTest
         public void Die()
         {
             // Logic for when Pacman is caught by a ghost
+        }
+
+        void ICharacter.Move()
+        {
+            throw new NotImplementedException();
         }
     }
 }

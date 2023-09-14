@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace WpfAppTest
 {
-    public abstract class Character
+    //An interface is a checklist of things that a class must implement
+    public interface ICharacter
     {
         public int X { get; set; }
         public int Y { get; set; }
         public int Speed { get; set; }
 
-        public abstract void Move();
-        public abstract void Draw();
+        //Direction CurrentDirection { get; set; }
+        public void Move();
     }
 }
 
