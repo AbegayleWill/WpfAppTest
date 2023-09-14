@@ -10,10 +10,10 @@
 
     <Grid>
         <Button Content="Start Game" Name="StartButton" Width="160" Height="40" Canvas.Left="290" Canvas.Top="5" FontSize="24" 
-Background="#4CAF50" 
-Foreground="White" 
-BorderBrush="#388E3C" 
-BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,312,0,0"/>
+        Background="#4CAF50" 
+        Foreground="White" 
+        BorderBrush="#388E3C" 
+        BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,312,0,0"/>
         <Canvas Background="#101D42" Name="MyCanvas" Focusable="True" >
             <!-- Start Game Button -->
 
@@ -22,7 +22,7 @@ BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center" Vertica
             <Label Name="damageText" Content="Lives: 0" FontSize="18" FontWeight="Bold" Canvas.Right="0" Foreground="White"/>
 
             <!-- Outer walls -->
-            <Rectangle Fill="Green" Canvas.Left="50" Canvas.Top="50" Width="640" Height="20"/>
+            <Rectangle Fill="Green" Name="wall" Canvas.Left="50" Canvas.Top="50" Width="640" Height="20"/>
             <Rectangle Fill="Green" Canvas.Left="50" Canvas.Top="50" Width="20" Height="600"/>
             <Rectangle Fill="Green" Canvas.Left="670" Canvas.Top="50" Width="20" Height="600"/>
             <Rectangle Fill="Green" Canvas.Left="50" Canvas.Top="630" Width="640" Height="20"/>
