@@ -32,7 +32,7 @@ namespace WpfAppTest
             pacmanOriginalLeft = Canvas.GetLeft(pacman);
             pacmanOriginalTop = Canvas.GetTop(pacman);
 
-            enemyMoveTimer.Interval = TimeSpan.FromMilliseconds(500); // Adjust the interval as needed
+            enemyMoveTimer.Interval = TimeSpan.FromMilliseconds(20); // Adjust the interval as needed
             enemyMoveTimer.Tick += EnemyMoveTimer_Tick;
             enemyMoveTimer.Start();
 

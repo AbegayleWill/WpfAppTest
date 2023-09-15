@@ -23,7 +23,7 @@
     </Window.Resources>
 
     <Grid Background="White">
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Margin="0,122,0,0"><Run Foreground="Green" Text="JAMAICAN"/><LineBreak/><Run Foreground="Yellow" Text=" PACMAN"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Margin="0,122,0,0"><Run Foreground="Green" Text="JAMAICAN"/><LineBreak/><Run Foreground="Yellow" Text=" PACMAAN"/></TextBlock>
 
         <!-- Dark Overlay -->
 
