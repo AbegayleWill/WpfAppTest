@@ -4,6 +4,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
        xmlns:local="clr-namespace:WpfAppTest"
        mc:Ignorable="d"
        Title="Pacman Game" Height="700" Width="740">
@@ -18,13 +19,19 @@
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Margin" Value="20"/>
         </Style>
+
     </Window.Resources>
-    <Grid>
-        <!-- Style for the ComboBox -->
+
+    <Grid Background="White">
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Margin="0,122,0,0"><Run Foreground="Green" Text="JAMAICAN"/><LineBreak/><Run Foreground="Yellow" Text=" PACMAN"/></TextBlock>
+
+        <!-- Dark Overlay -->
+
+        <!-- Dark  -->
 
 
         <!-- ComboBox for Character Selection -->
-        <ComboBox Name="CharacterComboBox" SelectionChanged="CharacterComboBox_SelectionChanged" Tag="null" Margin="244,367,244,248">
+        <ComboBox Name="CharacterComboBox" SelectionChanged="CharacterComboBox_SelectionChanged" Tag="null" Margin="235,400,235,213">
             <ComboBoxItem Content="Choose Your Player" IsEnabled="False" IsSelected="True"/>
             <ComboBoxItem Content="Leo" Tag="https://i.ibb.co/K0xgHD9/Leo.png"/>
             <ComboBoxItem Content="Nicky" Tag="https://i.ibb.co/8MjWn9L/Nicky.png"/>
@@ -170,5 +177,4 @@ BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   Verti
             <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="598" Canvas.Top="600" RenderTransformOrigin="0.525,1.977" Tag="Pellet"  HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </Canvas>
     </Grid>
-
 </Window>
