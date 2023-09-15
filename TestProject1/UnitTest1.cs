@@ -1,8 +1,4 @@
-using WpfAppTest;
-
-
-namespace PacManTest
-
+namespace TestProject1
 {
     [TestClass]
     public class UnitTest1

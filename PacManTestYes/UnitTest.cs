@@ -1,8 +1,8 @@
-using WpfAppTest;
+﻿
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
-namespace PacManTest
-
+namespace PacManTestYes
 {
     [TestClass]
     public class UnitTest1

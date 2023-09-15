@@ -37,6 +37,11 @@ namespace WpfAppTest
             enemyMoveTimer.Start();
 
         }
+        private void VolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            mediaPlayer.Volume = VolumeSlider.Value;
+        }
+
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
@@ -55,7 +60,7 @@ namespace WpfAppTest
                 }
             }
         }
-        private void MoveEnemyRandomly(Image enemy)
+       public void MoveEnemyRandomly(Image enemy)
         {
             double moveAmount = 10.0; // Amount to move the enemy
             double currentLeft = Canvas.GetLeft(enemy);

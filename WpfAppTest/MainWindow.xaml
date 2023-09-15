@@ -19,11 +19,14 @@
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Margin" Value="20"/>
         </Style>
+        
 
     </Window.Resources>
 
     <Grid Background="White">
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Margin="0,122,0,0"><Run Foreground="Green" Text="JAMAICAN"/><LineBreak/><Run Foreground="Yellow" Text=" PACMAAN"/></TextBlock>
+        <Grid Width="740" Height="700" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="48" FontWeight="Bold" Margin="0,122,0,0"><Run Foreground="Green" Text="JAMAICAN"/><LineBreak/><Run Foreground="Yellow" Text=" PACMAAN"/></TextBlock>
 
         <!-- Dark Overlay -->
 
@@ -34,18 +37,23 @@
         <ComboBox Name="CharacterComboBox" SelectionChanged="CharacterComboBox_SelectionChanged" Tag="null" Margin="235,400,235,213">
             <ComboBoxItem Content="Choose Your Player" IsEnabled="False" IsSelected="True"/>
             <ComboBoxItem Content="Olivia ^.^" Tag="https://i.ibb.co/k3k8CKh/Olivia.png"/>
-            <ComboBoxItem Content="Leo" Tag="https://i.ibb.co/K0xgHD9/Leo.png"/>
+                <ComboBoxItem Content="Kyle" Tag="https://i.ibb.co/0D71Rjk/Microsoft-Teams-image-4-removebg-preview.png"/>
+
+                <ComboBoxItem Content="Leo" Tag="https://i.ibb.co/K0xgHD9/Leo.png"/>
             <ComboBoxItem Content="Nathaniel" Tag="https://i.ibb.co/VLwhZRy/Nathaniel.pngg"/>
             <ComboBoxItem Content="Nicky" Tag="https://i.ibb.co/8MjWn9L/Nicky.png"/>
             <ComboBoxItem Content="Smiley Man" Tag="https://i.ibb.co/8KGLsch/character3.png"/>
             <ComboBoxItem Content="Friendly Rasta" Tag="https://i.ibb.co/fYDSKJr/character2.png"/>
             <!-- Add other character names here -->
         </ComboBox>
-        <Button Content="Start Game" Name="StartButton" Width="256" Height="62" Canvas.Left="290" Canvas.Top="5" FontSize="24" 
+            <Slider x:Name="VolumeSlider" Minimum="0" Maximum="1" Value="0.5" ValueChanged="VolumeSlider_ValueChanged" Width="200" Margin="10"/>
+
+            <Button Content="Start Game" Name="StartButton" Width="256" Height="62" Canvas.Left="290" Canvas.Top="5" FontSize="24" 
 Background="#4CAF50" 
 Foreground="White" 
 BorderBrush="#388E3C" 
 BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="0,302,0,0">
+
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -178,5 +186,6 @@ BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   Verti
             <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="550" Canvas.Top="600" RenderTransformOrigin="0.525,1.977" Tag="Pellet"  HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="598" Canvas.Top="600" RenderTransformOrigin="0.525,1.977" Tag="Pellet"  HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </Canvas>
+    </Grid>
     </Grid>
 </Window>
