@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Windows.Media;
 
 namespace WpfAppTest
 {
@@ -15,6 +16,7 @@ namespace WpfAppTest
         private double pacmanOriginalLeft;
         private double pacmanOriginalTop;
         private int lives = 3; // Start with 3 lives
+        MediaPlayer mediaPlayer = new MediaPlayer();
 
 
         private Random random = new Random();
@@ -23,6 +25,8 @@ namespace WpfAppTest
         public MainWindow()
         {
             InitializeComponent();
+            this.Loaded += MainWindow_Loaded;
+
 
             // Store Pac-Man's original position
             pacmanOriginalLeft = Canvas.GetLeft(pacman);
@@ -31,7 +35,16 @@ namespace WpfAppTest
             enemyMoveTimer.Interval = TimeSpan.FromMilliseconds(500); // Adjust the interval as needed
             enemyMoveTimer.Tick += EnemyMoveTimer_Tick;
             enemyMoveTimer.Start();
+
         }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Open(new Uri("reggaemusic.mp3", UriKind.Relative));
+            mediaPlayer.MediaEnded += (o, e) => mediaPlayer.Position = TimeSpan.Zero;
+            mediaPlayer.Play();
+        }
+
         private void EnemyMoveTimer_Tick(object sender, EventArgs e)
         {
             foreach (UIElement child in MyCanvas.Children)

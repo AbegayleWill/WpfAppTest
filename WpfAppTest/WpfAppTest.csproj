@@ -13,7 +13,14 @@
 
   <ItemGroup>
     <None Remove="NewFile1.txt" />
+    <None Remove="reggaemusic.mp3" />
     <None Remove="Resource\Character.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="reggaemusic.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
