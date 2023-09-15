@@ -33,7 +33,9 @@
         <!-- ComboBox for Character Selection -->
         <ComboBox Name="CharacterComboBox" SelectionChanged="CharacterComboBox_SelectionChanged" Tag="null" Margin="235,400,235,213">
             <ComboBoxItem Content="Choose Your Player" IsEnabled="False" IsSelected="True"/>
+            <ComboBoxItem Content="Olivia ^.^" Tag="https://i.ibb.co/k3k8CKh/Olivia.png"/>
             <ComboBoxItem Content="Leo" Tag="https://i.ibb.co/K0xgHD9/Leo.png"/>
+            <ComboBoxItem Content="Nathaniel" Tag="https://i.ibb.co/VLwhZRy/Nathaniel.pngg"/>
             <ComboBoxItem Content="Nicky" Tag="https://i.ibb.co/8MjWn9L/Nicky.png"/>
             <ComboBoxItem Content="Smiley Man" Tag="https://i.ibb.co/8KGLsch/character3.png"/>
             <ComboBoxItem Content="Friendly Rasta" Tag="https://i.ibb.co/fYDSKJr/character2.png"/>
