@@ -24,7 +24,7 @@
 
 
         <!-- ComboBox for Character Selection -->
-        <ComboBox Name="CharacterComboBox" SelectionChanged="CharacterComboBox_SelectionChanged" Tag="null" Margin="240,369,240,248">
+        <ComboBox Name="CharacterComboBox" SelectionChanged="CharacterComboBox_SelectionChanged" Tag="null" Margin="244,367,244,248">
             <ComboBoxItem Content="Choose Your Player" IsEnabled="False" IsSelected="True"/>
             <ComboBoxItem Content="Leo" Tag="https://i.ibb.co/K0xgHD9/Leo.png"/>
             <ComboBoxItem Content="Nicky" Tag="https://i.ibb.co/8MjWn9L/Nicky.png"/>
@@ -32,11 +32,11 @@
             <ComboBoxItem Content="Friendly Rasta" Tag="https://i.ibb.co/fYDSKJr/character2.png"/>
             <!-- Add other character names here -->
         </ComboBox>
-        <Button Content="Start Game" Name="StartButton" Width="260" Height="62" Canvas.Left="290" Canvas.Top="5" FontSize="24" 
+        <Button Content="Start Game" Name="StartButton" Width="256" Height="62" Canvas.Left="290" Canvas.Top="5" FontSize="24" 
 Background="#4CAF50" 
 Foreground="White" 
 BorderBrush="#388E3C" 
-BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="0,292,0,0">
+BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="0,302,0,0">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -54,8 +54,6 @@ BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   Verti
             <!--<Image Name="pacman" Height="45" Width="45" Source="https://i.ibb.co/8MjWn9L/Nicky.png" Canvas.Left="60" Canvas.Top="570"/>-->
             <Image Name="pacman" Height="55" Width="55" Source="https://i.ibb.co/K0xgHD9/Leo.png" Canvas.Left="60" Canvas.Top="570"/>
 
-            <Label Name="scoreText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White"/>
-            <Label Name="damageText" Content="Lives: 0" FontSize="18" FontWeight="Bold" Canvas.Right="0" Foreground="White"/>
 
             <!-- Outer walls -->
             <Rectangle Fill="#B0BEC5" Canvas.Left="50" Canvas.Top="50" Width="640" Height="20" Tag="MazeBlock"/>
@@ -86,30 +84,37 @@ BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   Verti
             <Rectangle Fill="#B0BEC5" Canvas.Left="270" Canvas.Top="480" Width="20" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top" Tag="MazeBlock"/>
             <Rectangle Fill="#B0BEC5" Canvas.Left="470" Canvas.Top="480" Width="20" Height="70" HorizontalAlignment="Center" VerticalAlignment="Top" Tag="MazeBlock"/>
 
-            <!-- Score TextBlock -->
-            <TextBlock Name="ScoreTextBlock" 
-                   Text="Score: 0" 
-                   Canvas.Left="10" 
-                   Canvas.Top="10" 
-                   Foreground="White" 
-                   FontSize="20" />
+            <Label Canvas.Right="0" Foreground="White">
+                <TextBlock Name="damageText" FontSize="18" FontWeight="Bold">
+                    <TextBlock Name="scoreDisplay" Canvas.Left="10" Canvas.Top="10" Foreground="White" FontSize="18" FontWeight="Bold" Text="Score: 0"/>
 
-            <!-- Lives TextBlock with Heart Emoji -->
-            <TextBlock Name="LivesTextBlock" 
-                   Text="Lives: ❤️❤️❤️" 
-                   Canvas.Left="10" 
-                   Canvas.Top="40" 
-                   Foreground="White" 
-                   FontSize="20" />
-
-            <!-- Enemy 1 -->
-            <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="430" Canvas.Top="190" Tag="Enemy"/>
+        <Run Text="Lives: "/>
+        <Run Name="livesCount" Text="3"/>
+        <InlineUIContainer>
+            <TextBlock Name="heart1" Text="❤"/>
+        </InlineUIContainer>
+        <InlineUIContainer>
+            <TextBlock Name="heart2" Text="❤"/>
+        </InlineUIContainer>
+        <InlineUIContainer>
+            <TextBlock Name="heart3" Text="❤"/>
+        </InlineUIContainer>
+    </TextBlock>
+            </Label>
+            <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="90" Canvas.Top="125" Tag="Enemy"/>
 
             <!-- Enemy 2 -->
             <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="593" Canvas.Top="100" HorizontalAlignment="Left"   VerticalAlignment="Center" Tag="Enemy"/>
 
             <!-- Enemy 3 -->
-            <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="370" Canvas.Top="410" HorizontalAlignment="Center"   VerticalAlignment="Top" Tag="Enemy"/>
+            <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="355" Canvas.Top="560" HorizontalAlignment="Left"   VerticalAlignment="Top" Tag="Enemy"/>
+
+
+
+
+
+
+
 
             <!-- Super Pellets at key positions -->
             <Image Source="https://i.ibb.co/cbt7zZ3/coin.png" Height="20" Width="20" Canvas.Left="509" Canvas.Top="475" RenderTransformOrigin="0.525,1.977" HorizontalAlignment="Left" Tag="Pellet"  VerticalAlignment="Top"/>

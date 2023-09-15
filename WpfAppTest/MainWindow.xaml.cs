@@ -154,6 +154,7 @@ namespace WpfAppTest
 
             Rect pacmanRect = new Rect(Canvas.GetLeft(pacman) + pacmanMargin, Canvas.GetTop(pacman) + pacmanMargin, pacman.Width - 2 * pacmanMargin, pacman.Height - 2 * pacmanMargin);
 
+            // Check for collisions with pellets
             foreach (UIElement child in MyCanvas.Children)
             {
                 if (child is Image && (child as Image).Tag?.ToString() == "Pellet" && child.Visibility == Visibility.Visible)
@@ -164,20 +165,38 @@ namespace WpfAppTest
                     {
                         child.Visibility = Visibility.Collapsed; // Hide the pellet
                         score++; // Increase the score
-                        scoreText.Content = "Score: " + score; // Update the score label
+                        scoreDisplay.Text = "Score: " + score.ToString();
                     }
                 }
+            }
+
+            // Check for collisions with enemies
+            foreach (UIElement child in MyCanvas.Children)
+            {
                 if (child is Image && (child as Image).Tag?.ToString() == "Enemy")
                 {
                     Rect enemyRect = new Rect(Canvas.GetLeft(child), Canvas.GetTop(child), (child as Image).Width, (child as Image).Height);
                     if (pacmanRect.IntersectsWith(enemyRect))
                     {
                         lives--; // Decrease the number of lives
-                        if (lives <= 0)
+                        livesCount.Text = lives.ToString(); // Update the displayed number of lives
+
+                        // Update heart visibility based on lives left
+                        switch (lives)
                         {
-                            EndGame("Game Over! You were caught by an enemy.");
+                            case 2:
+                                heart3.Visibility = Visibility.Collapsed; // Hide the third heart
+                                break;
+                            case 1:
+                                heart2.Visibility = Visibility.Collapsed; // Hide the second heart
+                                break;
+                            case 0:
+                                heart1.Visibility = Visibility.Collapsed; // Hide the first heart
+                                EndGame("Game Over! You were caught by an enemy.");
+                                break;
                         }
-                        else
+
+                        if (lives > 0)
                         {
                             MessageBox.Show($"You were caught by an enemy! Lives remaining: {lives}");
                             Canvas.SetLeft(pacman, pacmanOriginalLeft); // Reset Pac-Man's position
@@ -185,7 +204,11 @@ namespace WpfAppTest
                         }
                     }
                 }
-                // Check for collisions with maze blocks
+            }
+
+            // Check for collisions with maze blocks
+            foreach (UIElement child in MyCanvas.Children)
+            {
                 if (child is Rectangle && (child as Rectangle).Tag?.ToString() == "MazeBlock")
                 {
                     Rect mazeBlockRect = new Rect(Canvas.GetLeft(child), Canvas.GetTop(child), (child as Rectangle).Width, (child as Rectangle).Height);
@@ -195,18 +218,24 @@ namespace WpfAppTest
                         MessageBox.Show("Pac-Man collided with the maze!");
                     }
                 }
-                if (AreAllPelletsCollected())
-                {
-                    EndGame("Congratulations! You collected all the pellets!");
-                }
+            }
+
+            if (AreAllPelletsCollected())
+            {
+                EndGame("Congratulations! You collected all the pellets!");
             }
         }
+
+
 
         private void ResetGame()
         {
             // Reset the score
             score = 0;
-            scoreText.Content = "Score: " + score;
+            // Reset the number of lives (if you have this logic)
+            lives = 3;
+            livesCount.Text = lives.ToString(); // Update the displayed number of lives
+
 
             // Reset the visibility of all pellets
             foreach (UIElement child in MyCanvas.Children)
@@ -215,20 +244,21 @@ namespace WpfAppTest
                 {
                     child.Visibility = Visibility.Visible;
                 }
-                Canvas.SetLeft(pacman, pacmanOriginalLeft);
-                Canvas.SetTop(pacman, pacmanOriginalTop);
-
             }
 
-            // Reset Pac-Man's position (you can set it to a default starting position)
-            Canvas.SetLeft(pacman, 50); // Example starting position
-            Canvas.SetTop(pacman, 50);  // Example starting position
+            // Reset Pac-Man's position to the original starting position
+            Canvas.SetLeft(pacman, pacmanOriginalLeft);
+            Canvas.SetTop(pacman, pacmanOriginalTop);
 
             // Reset the game ended flag
             isGameEnded = false;
 
             // Start the enemy move timer again
             enemyMoveTimer.Start();
+            heart1.Text = "❤";
+            heart2.Text = "❤";
+            heart3.Text = "❤";
+
         }
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
