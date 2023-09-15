@@ -22,6 +22,12 @@ namespace WpfAppTest
         private Random random = new Random();
         private DispatcherTimer enemyMoveTimer = new DispatcherTimer();
 
+        //New Stuff
+        bool goLeft, goRight, goDown, goUp; // 4 boolean created to move player in 4 direction
+        bool noLeft, noRight, noDown, noUp; // 4 more boolean created to stop player moving in that direction
+
+        double moveAmount = 10.0; // Amount to move Pac-Man
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,8 +38,8 @@ namespace WpfAppTest
             pacmanOriginalLeft = Canvas.GetLeft(pacman);
             pacmanOriginalTop = Canvas.GetTop(pacman);
 
-            enemyMoveTimer.Interval = TimeSpan.FromMilliseconds(500); // Adjust the interval as needed
-            enemyMoveTimer.Tick += EnemyMoveTimer_Tick;
+            enemyMoveTimer.Interval = TimeSpan.FromMilliseconds(20); // Adjust the interval as needed
+            enemyMoveTimer.Tick += Game_Tick;
             enemyMoveTimer.Start();
 
         }
@@ -45,8 +51,55 @@ namespace WpfAppTest
             mediaPlayer.Play();
         }
 
-        private void EnemyMoveTimer_Tick(object sender, EventArgs e)
+        private void Game_Tick(object sender, EventArgs e)
         {
+            if (goRight)
+            {
+                // if go right boolean is true then move pac man to the right direction by adding the speed to the left 
+                Canvas.SetLeft(pacman, currentLeft + moveAmount);
+            }
+            if (goLeft)
+            {
+                // if go left boolean is then move pac man to the left direction by deducting the speed from the left
+                Canvas.SetLeft(pacman, currentLeft - moveAmount);
+            }
+            if (goUp)
+            {
+                // if go up boolean is true then deduct the speed integer from the top position of the pac man
+                Canvas.SetTop(pacman, currentTop - moveAmount);
+            }
+            if (goDown)
+            {
+                // if go down boolean is true then add speed integer value to the pac man top position
+                Canvas.SetTop(pacman, currentTop + moveAmount);
+            }
+            // end the movement 
+            // restrict the movement
+            if (goDown && Canvas.GetTop(pacman) + 1 > Application.Current.MainWindow.Height)
+            {
+                // if pac man is moving down the position of pac man is grater than the main window height then stop down movement
+                noDown = true;
+                goDown = false;
+            }
+            if (goUp && Canvas.GetTop(pacman) < 1)
+            {
+                // is pac man is moving and position of pac man is less than 1 then stop up movement
+                noUp = true;
+                goUp = false;
+            }
+            if (goLeft && Canvas.GetLeft(pacman) < 1)
+            {
+                // if pac man is moving left and pac man position is less than 1 then stop moving left
+                noLeft = true;
+                goLeft = false;
+            }
+            if (goRight && Canvas.GetLeft(pacman) + 1 > Application.Current.MainWindow.Width)
+            {
+                // if pac man is moving right and pac man position is greater than the main window then stop moving right
+                noRight = true;
+                goRight = false;
+            }
+
             foreach (UIElement child in MyCanvas.Children)
             {
                 if (child is Image && (child as Image).Tag?.ToString() == "Enemy")
@@ -55,6 +108,7 @@ namespace WpfAppTest
                 }
             }
         }
+
         private void MoveEnemyRandomly(Image enemy)
         {
             double moveAmount = 10.0; // Amount to move the enemy
@@ -103,9 +157,10 @@ namespace WpfAppTest
                 Canvas.SetTop(enemy, newTop);
             }
         }
+
         private void Canvas_KeyDown(object sender, KeyEventArgs e)
         {
-            double moveAmount = 10.0; // Amount to move Pac-Man
+            
 
             // Get current position
             double currentLeft = Canvas.GetLeft(pacman);
@@ -119,16 +174,40 @@ namespace WpfAppTest
             switch (e.Key)
             {
                 case Key.Up:
-                    Canvas.SetTop(pacman, currentTop - moveAmount);
+                    if (noUp == false)
+                    {
+                        goUp = true;
+                        goDown = goRight = goLeft = false;
+                        noDown = noRight = noLeft = false;
+                        
+                    }
                     break;
                 case Key.Down:
-                    Canvas.SetTop(pacman, currentTop + moveAmount);
+                    if (noDown == false)
+                    {
+                        goDown = true;
+                        goUp = goRight = goLeft = false;
+                        noUp = noRight = noLeft = false;
+                        
+                    }
                     break;
                 case Key.Left:
-                    Canvas.SetLeft(pacman, currentLeft - moveAmount);
+                    if (noLeft == false)
+                    {
+                        goLeft = true;
+                        goDown = goRight = goUp = false;
+                        noDown = noRight = noUp = false;
+                        
+                    }
                     break;
                 case Key.Right:
-                    Canvas.SetLeft(pacman, currentLeft + moveAmount);
+                    if(noRight == false)
+                    {
+                        goRight = true;
+                        goDown = goUp = goLeft = false;
+                        noDown = noUp = noLeft = false;
+                        
+                    }
                     break;
             }
 
@@ -274,6 +353,7 @@ namespace WpfAppTest
 
         }
 
+
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
             // Show the game canvas and hide the start button
@@ -283,6 +363,8 @@ namespace WpfAppTest
             // Focus on the canvas to allow key events
             MyCanvas.Focus();
         }
+
+
         private void EndGame(string message)
         {
             enemyMoveTimer.Stop(); // Stop the enemies from moving

@@ -108,6 +108,7 @@ BorderThickness="2" Click="StartGame_Click" HorizontalAlignment="Center"   Verti
         </InlineUIContainer>
     </TextBlock>
             </Label>
+			<!-- Enemy 1 -->
             <Image Source="https://i.ibb.co/4tQmhsW/enemy.png" Height="50" Width="50" Canvas.Left="90" Canvas.Top="125" Tag="Enemy"/>
 
             <!-- Enemy 2 -->
